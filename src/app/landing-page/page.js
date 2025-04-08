@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
+import { Leaf } from 'lucide-react';
 
 export default function LandingPage() {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -41,16 +42,12 @@ export default function LandingPage() {
           transition={{ duration: 0.5 }}
           className="flex items-center"
         >
-          <div className="h-10 w-10 relative mr-2">
-            <Image
-              src="/placeholder.jpg"
-              alt="AgroCycle Logo"
-              layout="fill"
-              objectFit="contain"
-              className="rounded-full"
-            />
+          <div className="flex-shrink-0 flex items-center">
+            <Leaf className="h-6 w-6 text-green-500 mr-2" />
+            <Link href="/" className="font-bold text-xl tracking-wide text-green-600">
+              AgroCycle
+            </Link>
           </div>
-          <span className="text-green-600 font-bold text-2xl">AgroCycle</span>
         </motion.div>
 
         <motion.div
@@ -157,16 +154,12 @@ export default function LandingPage() {
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="mb-6 md:mb-0">
               <div className="flex items-center">
-                <div className="h-8 w-8 relative mr-2">
-                  <Image
-                    src="/placeholder.jpg"
-                    alt="AgroCycle Logo"
-                    layout="fill"
-                    objectFit="contain"
-                    className="rounded-full"
-                  />
-                </div>
-                <span className="text-green-600 font-bold text-xl">AgroCycle</span>
+              <div className="flex-shrink-0 flex items-center">
+            <Leaf className="h-6 w-6 text-green-500 mr-2" />
+            <Link href="/" className="font-bold text-xl tracking-wide text-green-600">
+              AgroCycle
+            </Link>
+          </div>
               </div>
               <p className="text-gray-500 mt-2">Ekosistem Hijau untuk Masa Depan</p>
             </div>
