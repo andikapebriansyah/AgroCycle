@@ -1,3 +1,51 @@
+# 🍀 Agrocycle - Platform Tukar Tambah Bibit & Tanaman
+
+---
+
+## 🪴 Tentang Platform
+
+Agrocycle adalah platform pertanian berkelanjutan yang memungkinkan pengguna untuk saling bertukar bibit dan tanaman secara mudah. Platform ini mempertemukan para penghobi tanaman dan petani urban untuk berbagi, menukar, atau menjual bibit dan tanaman dengan sistem pencocokan cerdas.
+
+Misi utama kami:
+
+- Mendorong ekosistem pertukaran tanaman yang ramah lingkungan
+- Memperkuat komunitas urban farming dan gardening
+- Mengurangi limbah tanaman dengan sistem tukar tambah
+- Memanfaatkan teknologi untuk memperluas akses bibit/tanaman
+
+---
+
+## 🌟 Fitur Utama
+
+### 🛍️ Marketplace
+
+- Pencarian & filter berdasarkan **jenis tanaman**, **lokasi**, dan **kondisi**
+- Katalog tanaman dengan **foto** dan **deskripsi lengkap**
+- Sistem **penilaian dan ulasan** dari pengguna
+- Fitur **tawar-menawar harga** untuk transaksi jual-beli tanaman
+
+### ♻️ Swap Market (Tukar Tambah)
+
+- Algoritma **pencocokan otomatis** berdasarkan preferensi pengguna
+- Sistem **wish list** untuk tanaman yang diinginkan
+- Notifikasi real-time saat ada kecocokan tukar
+- Fitur **chat in-app** untuk negosiasi tukar tambah
+- Sistem **poin** untuk menjaga nilai tukar tetap adil
+
+---
+
+## 🧱 Teknologi yang Digunakan
+
+- **Frontend**: React.js  
+- **Framework**: Next.js  
+- **Styling**: Tailwind CSS  
+
+---
+
+> Proyek ini masih dalam tahap pengembangan. Saran, ide, dan kontribusi dari komunitas sangat kami harapkan untuk mewujudkan ekosistem tanaman yang lebih berkelanjutan 🌿
+
+
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
@@ -30,6 +78,9 @@ To learn more about Next.js, take a look at the following resources:
 You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
 ## Deploy on Vercel
+
+
+
 
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
