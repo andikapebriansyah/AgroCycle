@@ -11,7 +11,7 @@ const Cart = () => {
       name: 'Kompos Organik Premium',
       price: 45000,
       quantity: 2,
-      image: '/img/compost1.jpg',
+      image: '/product/kompos.jpg',
       seller: 'Tani Makmur',
     },
     {
@@ -19,7 +19,7 @@ const Cart = () => {
       name: 'Pupuk Kandang Fermentasi',
       price: 25000,
       quantity: 1,
-      image: '/img/manure1.jpg',
+      image: '/product/pupukkandang.jpeg',
       seller: 'Organik Jaya',
     },
   ];

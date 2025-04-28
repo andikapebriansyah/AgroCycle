@@ -43,9 +43,6 @@ const Navbar = () => {
             <Link href="/profile" className="text-green-600 hover:text-green-700 p-2 rounded-full hover:bg-green-50">
               <User size={20} />
             </Link>
-            <Link href="/login" className="bg-green-500 text-white px-4 py-2 rounded-full text-sm font-medium hover:bg-green-600 transition duration-150 ease-in-out shadow-sm">
-              Masuk
-            </Link>
           </div>
 
           {/* Mobile menu button */}
@@ -95,13 +92,6 @@ const Navbar = () => {
           </div>
 
           <div className="pt-4 flex flex-col gap-3">
-            <Link
-              href="/login"
-              className="bg-green-500 text-white px-4 py-2 rounded-full font-medium text-center hover:bg-green-600 shadow-sm"
-              onClick={() => setIsOpen(false)}
-            >
-              Masuk
-            </Link>
             <div className="flex justify-center gap-6 pt-2">
               <Link href="/cart" className="text-green-600 p-2 rounded-full hover:bg-green-50" onClick={() => setIsOpen(false)}>
                 <ShoppingCart size={20} />

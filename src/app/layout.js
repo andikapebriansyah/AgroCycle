@@ -7,7 +7,11 @@ import { usePathname } from 'next/navigation';
 
 export default function RootLayout({ children }) {
   const pathname = usePathname();
-  const hideLayout = pathname === '/landing-page'; // hanya sembunyi di landing page
+  
+  // Hide layout on landing page, login page, and register page
+  const hideLayout = pathname === '/landing-page' || 
+                    pathname === '/login' || 
+                    pathname === '/register';
 
   return (
     <html lang="en">
