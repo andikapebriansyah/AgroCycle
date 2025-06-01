@@ -43,29 +43,36 @@ export default function Register() {
       return;
     }
     
-    // Simulate loading
     setIsLoading(true);
+    setError('');
     
-    // Simulate registration process
-    setTimeout(() => {
-      setIsLoading(false);
-      
-      // Store user data in localStorage but don't set login state
-      localStorage.setItem('user_' + formData.email, JSON.stringify({
-        name: formData.name,
-        email: formData.email,
-        password: formData.password, // In a real app, this should be hashed
-        location: formData.location,
-        bio: '',
-        joinDate: new Date().toLocaleDateString('id-ID', { year: 'numeric', month: 'long' }),
-        plants: 0,
-        trades: 0,
-        followers: 0
-      }));
-      
-      // Redirect to login page instead of profile
+    try {
+      const response = await fetch('/api/auth/register', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          password: formData.password,
+          location: formData.location,
+        }),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.message || 'Terjadi kesalahan saat mendaftar');
+      }
+
+      // Redirect to login page with success message
       router.push('/login?registered=true');
-    }, 1500);
+    } catch (error) {
+      setError(error.message);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (

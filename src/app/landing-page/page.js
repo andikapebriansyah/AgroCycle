@@ -84,7 +84,7 @@ export default function LandingPage() {
             </motion.p>
 
             <motion.div variants={itemVariants}>
-              <Link href="/homepage" className="px-8 py-3 bg-green-500 hover:bg-green-600 text-white rounded-full font-semibold text-lg transition-colors duration-300 inline-block shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+              <Link href="/login" className="px-8 py-3 bg-green-500 hover:bg-green-600 text-white rounded-full font-semibold text-lg transition-colors duration-300 inline-block shadow-lg hover:shadow-xl transform hover:-translate-y-1">
                   Mulai Sekarang
               </Link>
             </motion.div>

@@ -4,10 +4,10 @@ import { useState } from 'react';
 export default function SwapRegistrationModal({ onClose, onSubmit }) {
   const [formData, setFormData] = useState({
     name: '',
-    category: 'indoor',
-    age: 'young',
+    category: '',
+    age: '',
     description: '',
-    condition: 'healthy',
+    condition: '',
     willingToExchangeFor: '',
     location: '',
     imageFile: null,
@@ -15,11 +15,11 @@ export default function SwapRegistrationModal({ onClose, onSubmit }) {
   });
 
   const categories = [
-    { id: 'indoor', name: 'Tanaman Indoor' },
-    { id: 'outdoor', name: 'Tanaman Outdoor' },
-    { id: 'herbs', name: 'Herbal & Bumbu' },
-    { id: 'fruits', name: 'Buah & Sayur' },
-    { id: 'ornamental', name: 'Hias & Dekoratif' },
+    { id: 'Tanaman Hias', name: 'Tanaman Hias' },
+    { id: 'Tanaman Buah', name: 'Tanaman Buah' },
+    { id: 'Tanaman Herbal', name: 'Tanaman Herbal' },
+    { id: 'Tanaman Bumbu', name: 'Tanaman Bumbu' },
+    { id: 'Sukulen', name: 'Sukulen' }
   ];
 
   const ageOptions = [
@@ -69,204 +69,205 @@ export default function SwapRegistrationModal({ onClose, onSubmit }) {
   };
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50 p-4">
-      <div className="bg-white rounded-lg max-w-2xl w-full max-h-screen overflow-y-auto">
-        <div className="sticky top-0 bg-white p-4 border-b border-gray-200 flex justify-between items-center">
-          <h2 className="text-xl font-bold text-green-800">Registrasi Tanaman untuk Ditukar</h2>
-          <button 
-            onClick={onClose}
-            className="text-gray-500 hover:text-gray-700"
-          >
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-            </svg>
-          </button>
-        </div>
-        
-        <form onSubmit={handleSubmit} className="p-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
-            <div className="md:col-span-2">
-              <label className="block text-sm font-medium text-gray-700 mb-1">
-                Foto Tanaman*
-              </label>
-              <div 
-                className="border-2 border-dashed border-gray-300 rounded-lg p-4 text-center cursor-pointer hover:bg-gray-50"
-                onClick={() => document.getElementById('plant-image').click()}
-              >
-                {formData.imagePreview ? (
-                  <div className="relative h-48">
-                    <img 
-                      src={formData.imagePreview} 
-                      alt="Preview" 
-                      className="max-h-full mx-auto rounded-lg"
-                    />
-                    <button 
-                      type="button"
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        setFormData(prev => ({ ...prev, imageFile: null, imagePreview: null }));
-                      }}
-                      className="absolute top-2 right-2 bg-red-500 text-white rounded-full p-1"
-                    >
-                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-4 h-4">
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-                      </svg>
-                    </button>
-                  </div>
-                ) : (
-                  <>
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-12 h-12 mx-auto text-gray-400">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 001.5-1.5V6a1.5 1.5 0 00-1.5-1.5H3.75A1.5 1.5 0 002.25 6v12a1.5 1.5 0 001.5 1.5zm10.5-11.25h.008v.008h-.008V8.25zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
-                    </svg>
-                    <p className="mt-2 text-sm text-gray-500">Klik untuk upload foto tanaman</p>
-                    <p className="text-xs text-gray-400">Format: JPG, PNG (Maks. 5MB)</p>
-                  </>
-                )}
-                <input 
-                  id="plant-image" 
-                  type="file" 
-                  accept="image/*" 
-                  className="hidden" 
-                  onChange={handleImageChange}
+    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
+      <div className="bg-white rounded-lg max-w-lg w-full max-h-[90vh] overflow-y-auto">
+        <div className="p-6">
+          <div className="flex justify-between items-center mb-6">
+            <h2 className="text-xl font-semibold text-gray-900">Daftarkan Tanaman</h2>
+            <button onClick={onClose} className="text-gray-400 hover:text-gray-500">
+              <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+          </div>
+
+          <form onSubmit={handleSubmit}>
+            <div className="space-y-4">
+              <div>
+                <label htmlFor="name" className="block text-sm font-medium text-gray-700">Nama Tanaman</label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  required
+                  value={formData.name}
+                  onChange={handleChange}
+                  className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-green-500 focus:ring-green-500"
                 />
               </div>
+
+              <div>
+                <label htmlFor="category" className="block text-sm font-medium text-gray-700">Kategori</label>
+                <select
+                  id="category"
+                  name="category"
+                  required
+                  value={formData.category}
+                  onChange={handleChange}
+                  className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-green-500 focus:ring-green-500"
+                >
+                  <option value="">Pilih Kategori</option>
+                  {categories.map(category => (
+                    <option key={category.id} value={category.id}>
+                      {category.name}
+                    </option>
+                  ))}
+                </select>
+              </div>
+
+              <div>
+                <label htmlFor="age" className="block text-sm font-medium text-gray-700">Umur (bulan)</label>
+                <input
+                  type="number"
+                  id="age"
+                  name="age"
+                  required
+                  value={formData.age}
+                  onChange={handleChange}
+                  className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-green-500 focus:ring-green-500"
+                />
+              </div>
+
+              <div>
+                <label htmlFor="condition" className="block text-sm font-medium text-gray-700">Kondisi</label>
+                <select
+                  id="condition"
+                  name="condition"
+                  required
+                  value={formData.condition}
+                  onChange={handleChange}
+                  className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-green-500 focus:ring-green-500"
+                >
+                  <option value="">Pilih Kondisi</option>
+                  {conditionOptions.map(option => (
+                    <option key={option.id} value={option.id}>
+                      {option.name}
+                    </option>
+                  ))}
+                </select>
+              </div>
+
+              <div>
+                <label htmlFor="description" className="block text-sm font-medium text-gray-700">Deskripsi</label>
+                <textarea
+                  id="description"
+                  name="description"
+                  required
+                  value={formData.description}
+                  onChange={handleChange}
+                  rows={3}
+                  className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-green-500 focus:ring-green-500"
+                />
+              </div>
+
+              <div>
+                <label htmlFor="willingToExchangeFor" className="block text-sm font-medium text-gray-700">
+                  Ingin Ditukar Dengan
+                </label>
+                <input
+                  type="text"
+                  id="willingToExchangeFor"
+                  name="willingToExchangeFor"
+                  required
+                  value={formData.willingToExchangeFor}
+                  onChange={handleChange}
+                  className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-green-500 focus:ring-green-500"
+                  placeholder="Contoh: Tanaman hias, herbal, atau buah"
+                />
+              </div>
+
+              <div>
+                <label htmlFor="location" className="block text-sm font-medium text-gray-700">Lokasi</label>
+                <input
+                  type="text"
+                  id="location"
+                  name="location"
+                  required
+                  value={formData.location}
+                  onChange={handleChange}
+                  className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-green-500 focus:ring-green-500"
+                  placeholder="Contoh: Jakarta Selatan"
+                />
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium text-gray-700">Foto Tanaman</label>
+                <div className="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-md">
+                  <div className="space-y-1 text-center">
+                    {formData.imagePreview ? (
+                      <div className="relative w-full h-48">
+                        <img
+                          src={formData.imagePreview}
+                          alt="Preview"
+                          className="w-full h-full object-cover rounded-md"
+                        />
+                        <button
+                          type="button"
+                          onClick={() => setFormData(prev => ({ ...prev, imageFile: null, imagePreview: null }))}
+                          className="absolute top-2 right-2 bg-white rounded-full p-1 shadow-sm"
+                        >
+                          <svg className="h-4 w-4 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                          </svg>
+                        </button>
+                      </div>
+                    ) : (
+                      <>
+                        <svg
+                          className="mx-auto h-12 w-12 text-gray-400"
+                          stroke="currentColor"
+                          fill="none"
+                          viewBox="0 0 48 48"
+                        >
+                          <path
+                            d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02"
+                            strokeWidth={2}
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          />
+                        </svg>
+                        <div className="flex text-sm text-gray-600">
+                          <label
+                            htmlFor="image-upload"
+                            className="relative cursor-pointer bg-white rounded-md font-medium text-green-600 hover:text-green-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-green-500"
+                          >
+                            <span>Upload a file</span>
+                            <input
+                              id="image-upload"
+                              name="image-upload"
+                              type="file"
+                              accept="image/*"
+                              className="sr-only"
+                              onChange={handleImageChange}
+                            />
+                          </label>
+                          <p className="pl-1">or drag and drop</p>
+                        </div>
+                        <p className="text-xs text-gray-500">PNG, JPG, GIF up to 10MB</p>
+                      </>
+                    )}
+                  </div>
+                </div>
+              </div>
             </div>
-            
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
-                Nama Tanaman*
-              </label>
-              <input 
-                type="text" 
-                name="name" 
-                value={formData.name} 
-                onChange={handleChange}
-                required
-                placeholder="mis. Monstera Deliciosa"
-                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
-              />
-            </div>
-            
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
-                Kategori*
-              </label>
-              <select 
-                name="category" 
-                value={formData.category} 
-                onChange={handleChange}
-                required
-                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
-              >
-                {categories.map(category => (
-                  <option key={category.id} value={category.id}>
-                    {category.name}
-                  </option>
-                ))}
-              </select>
-            </div>
-            
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
-                Usia Tanaman*
-              </label>
-              <select 
-                name="age" 
-                value={formData.age} 
-                onChange={handleChange}
-                required
-                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
-              >
-                {ageOptions.map(option => (
-                  <option key={option.id} value={option.id}>
-                    {option.name}
-                  </option>
-                ))}
-              </select>
-            </div>
-            
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
-                Kondisi Tanaman*
-              </label>
-              <select 
-                name="condition" 
-                value={formData.condition} 
-                onChange={handleChange}
-                required
-                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
-              >
-                {conditionOptions.map(option => (
-                  <option key={option.id} value={option.id}>
-                    {option.name}
-                  </option>
-                ))}
-              </select>
-            </div>
-            
-            <div className="md:col-span-2">
-              <label className="block text-sm font-medium text-gray-700 mb-1">
-                Deskripsi Tanaman*
-              </label>
-              <textarea 
-                name="description" 
-                value={formData.description} 
-                onChange={handleChange}
-                required
-                rows={3}
-                placeholder="Ceritakan detail tentang tanaman Anda seperti ukuran, warna, keunikan, dll."
-                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
-              ></textarea>
-            </div>
-            
-            <div className="md:col-span-2">
-              <label className="block text-sm font-medium text-gray-700 mb-1">
-                Ingin Ditukar Dengan
-              </label>
-              <textarea 
-                name="willingToExchangeFor" 
-                value={formData.willingToExchangeFor} 
-                onChange={handleChange}
-                rows={2}
-                placeholder="Sebutkan jenis tanaman yang Anda inginkan sebagai penukaran, atau tulis 'terbuka untuk berbagai tawaran'"
-                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
-              ></textarea>
-            </div>
-            
-            <div className="md:col-span-2">
-              <label className="block text-sm font-medium text-gray-700 mb-1">
-                Lokasi Anda*
-              </label>
-              <input 
-                type="text" 
-                name="location" 
-                value={formData.location} 
-                onChange={handleChange}
-                required
-                placeholder="mis. Jakarta Selatan"
-                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
-              />
-            </div>
-          </div>
-          
-          <div className="border-t border-gray-200 pt-4 mt-4">
-            <div className="flex justify-end space-x-3">
-              <button 
+
+            <div className="mt-6 flex justify-end space-x-3">
+              <button
                 type="button"
                 onClick={onClose}
-                className="px-4 py-2 border border-gray-300 rounded-md text-gray-700 hover:bg-gray-50"
+                className="px-4 py-2 border border-gray-300 rounded-md text-sm font-medium text-gray-700 hover:bg-gray-50"
               >
                 Batal
               </button>
-              <button 
+              <button
                 type="submit"
-                className="px-4 py-2 bg-green-600 text-white rounded-md hover:bg-green-700"
+                className="px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-green-600 hover:bg-green-700"
               >
-                Publikasikan Tanaman
+                Daftarkan
               </button>
             </div>
-          </div>
-        </form>
+          </form>
+        </div>
       </div>
     </div>
   );

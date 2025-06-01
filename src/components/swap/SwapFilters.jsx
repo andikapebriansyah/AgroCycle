@@ -2,11 +2,11 @@
 export default function SwapFilters({ activeFilter, onFilterChange }) {
     const filters = [
       { id: 'all', name: 'Semua' },
-      { id: 'indoor', name: 'Tanaman Indoor' },
-      { id: 'outdoor', name: 'Tanaman Outdoor' },
-      { id: 'herbs', name: 'Herbal & Bumbu' },
-      { id: 'fruits', name: 'Buah & Sayur' },
-      { id: 'ornamental', name: 'Hias & Dekoratif' },
+      { id: 'Orchid', name: 'Anggrek' },
+      { id: 'Citrus', name: 'Jeruk' },
+      { id: 'Herb', name: 'Herbal' },
+      { id: 'Succulent', name: 'Sukulen' },
+      { id: 'Indoor', name: 'Tanaman Dalam Ruangan' },
     ];
   
     return (

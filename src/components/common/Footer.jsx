@@ -38,7 +38,6 @@ const Footer = () => {
               {[
                 { href: '/', label: 'Beranda' },
                 { href: '/swap', label: 'Swap Market' },
-                { href: '/marketplace', label: 'Marketplace' },
                 { href: '/sell', label: 'Jual Produk' },
               ].map((link) => (
                 <li key={link.href}>
@@ -77,12 +76,12 @@ const Footer = () => {
               <li className="flex items-start">
                 <MapPin size={18} className="mr-2 text-green-500 flex-shrink-0 mt-0.5" />
                 <span className="text-gray-500 text-sm">
-                  Jl. Hijau Asri No. 25, Jakarta Selatan, Indonesia
+                Syiah Kuala University, Banda Aceh, Aceh, Indonesia
                 </span>
               </li>
               <li className="flex items-center">
                 <Phone size={18} className="mr-2 text-green-500" />
-                <span className="text-gray-500 text-sm">+62 21 1234 5678</span>
+                <span className="text-gray-500 text-sm">+62 822 8488 7151</span>
               </li>
               <li className="flex items-center">
                 <Mail size={18} className="mr-2 text-green-500" />

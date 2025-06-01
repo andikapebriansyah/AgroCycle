@@ -27,12 +27,6 @@ const Hero = () => {
                 >
                   Mulai Tukar Tanaman
                 </Link>
-                <Link
-                  href="/marketplace"
-                  className="flex items-center justify-center px-6 py-3 rounded-full text-base font-medium text-green-600 bg-green-50 hover:bg-green-100 transition duration-150 border border-green-200"
-                >
-                  Jelajahi Marketplace
-                </Link>
               </div>
             </div>
           </div>

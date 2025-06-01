@@ -10,7 +10,6 @@ const HomePage = () => {
   return (
     <div>
       <Hero />
-      <FeaturedProducts />
       <InfoGraphics />
       <InteractiveMap />
       <Testimonials />

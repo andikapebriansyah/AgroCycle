@@ -2,7 +2,8 @@
 
 import Link from 'next/link';
 import { useState } from 'react';
-import { Menu, X, User, ShoppingCart, Leaf } from 'lucide-react';
+import { Menu, X, User, Leaf, MessageCircle } from 'lucide-react';
+import NotificationBell from '../NotificationBell';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -27,8 +28,8 @@ const Navbar = () => {
             <Link href="/swap" className="px-3 py-2 rounded-full text-green-600 hover:bg-green-50 font-medium text-sm">
               Swap Market
             </Link>
-            <Link href="/marketplace" className="px-3 py-2 rounded-full text-green-600 hover:bg-green-50 font-medium text-sm">
-              Marketplace
+            <Link href="/point-exchange" className="px-3 py-2 rounded-full text-green-600 hover:bg-green-50 font-medium text-sm">
+              Tukar Poin
             </Link>
             <Link href="/support" className="px-3 py-2 rounded-full text-green-600 hover:bg-green-50 font-medium text-sm">
               Bantuan
@@ -37,9 +38,12 @@ const Navbar = () => {
 
           {/* Desktop Actions */}
           <div className="hidden md:flex items-center space-x-4">
-            <Link href="/cart" className="text-green-600 hover:text-green-700 p-2 rounded-full hover:bg-green-50">
-              <ShoppingCart size={20} />
+            <Link href="/chat" className="text-green-600 hover:text-green-700 p-2 rounded-full hover:bg-green-50">
+              <MessageCircle size={20} />
             </Link>
+            <div className="text-green-600 hover:text-green-700 p-2 rounded-full hover:bg-green-50">
+              <NotificationBell />
+            </div>
             <Link href="/profile" className="text-green-600 hover:text-green-700 p-2 rounded-full hover:bg-green-50">
               <User size={20} />
             </Link>
@@ -62,7 +66,7 @@ const Navbar = () => {
         <div className="md:hidden bg-white pb-4 px-4 shadow-lg rounded-b-lg">
           <div className="pt-2 pb-3 space-y-1">
             <Link
-              href="/"
+              href="/homepage"
               className="block px-3 py-2 rounded-lg text-base font-medium hover:bg-green-50 text-green-600"
               onClick={() => setIsOpen(false)}
             >
@@ -76,11 +80,11 @@ const Navbar = () => {
               Swap Market
             </Link>
             <Link
-              href="/marketplace"
+              href="/point-exchange"
               className="block px-3 py-2 rounded-lg text-base font-medium hover:bg-green-50 text-green-600"
               onClick={() => setIsOpen(false)}
             >
-              Marketplace
+              Tukar Poin
             </Link>
             <Link
               href="/support"
@@ -93,9 +97,12 @@ const Navbar = () => {
 
           <div className="pt-4 flex flex-col gap-3">
             <div className="flex justify-center gap-6 pt-2">
-              <Link href="/cart" className="text-green-600 p-2 rounded-full hover:bg-green-50" onClick={() => setIsOpen(false)}>
-                <ShoppingCart size={20} />
+              <Link href="/chat" className="text-green-600 p-2 rounded-full hover:bg-green-50" onClick={() => setIsOpen(false)}>
+                <MessageCircle size={20} />
               </Link>
+              <div className="text-green-600 p-2 rounded-full hover:bg-green-50">
+                <NotificationBell />
+              </div>
               <Link href="/profile" className="text-green-600 p-2 rounded-full hover:bg-green-50" onClick={() => setIsOpen(false)}>
                 <User size={20} />
               </Link>

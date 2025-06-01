@@ -85,3 +85,56 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+## 🚀 Cara Menjalankan Aplikasi
+
+1. Clone repository
+```bash
+git clone [repository-url]
+cd [repository-name]
+```
+
+2. Install dependencies
+```bash
+npm install
+```
+
+3. Setup environment variables
+- Copy file `.env.example` menjadi `.env.local`:
+  ```bash
+  cp .env.example .env.local
+  ```
+  atau salin manual dengan membuat file `.env.local` baru dan copy isi dari `.env.example`
+
+- File `.env.local` sudah berisi nilai default untuk development:
+  ```
+  # Authentication
+  JWT_SECRET=agrocycle-development-secret-key-2024
+
+  # Database
+  DB_HOST=localhost
+  DB_USER=root
+  DB_PASSWORD=
+  DB_NAME=agrocycle
+  ```
+
+- Sesuaikan nilai di `.env.local` jika diperlukan (misalnya password database berbeda)
+
+4. Jalankan development server
+```bash
+npm run dev
+```
+
+Aplikasi akan berjalan di [http://localhost:3000](http://localhost:3000)
+
+> **Catatan Penting**: 
+> - File `.env.local` tidak akan ter-commit ke Git (sudah ditambahkan ke .gitignore)
+> - File `.env.example` adalah template dan TIDAK digunakan oleh aplikasi
+> - Untuk production, gunakan JWT_SECRET yang berbeda dan lebih aman
+> - Pastikan database MySQL sudah berjalan sebelum menjalankan aplikasi
+
+## Features
+- Plant swapping marketplace
+- Real-time chat between users
+- Point system for plant exchanges
+- User profiles and plant management
