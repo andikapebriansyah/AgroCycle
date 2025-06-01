@@ -98,7 +98,7 @@ export default function RecommendedPlants() {
             <div className="flex items-center mb-3">
               <div className="relative h-12 w-12 rounded-lg overflow-hidden">
                 <Image
-                  src={user_plant.image_url?.startsWith("/") ? user_plant.image_url : "/placeholder.jpg"}
+                  src={user_plant.image_url? user_plant.image_url : "/placeholder.jpg"}
                   alt={user_plant.name}
                   fill
                   className="object-cover"
