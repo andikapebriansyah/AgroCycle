@@ -120,7 +120,12 @@ npm install
 
 - Sesuaikan nilai di `.env.local` jika diperlukan (misalnya password database berbeda)
 
-4. Jalankan development server
+4. jalankan migrasi database dengan data dummy dengan perintah berikut:
+```bash
+node scripts/db-init.js
+```
+  
+5. Jalankan development server
 ```bash
 npm run dev
 ```
